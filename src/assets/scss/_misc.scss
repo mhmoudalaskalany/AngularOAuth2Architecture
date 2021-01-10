@@ -21,8 +21,10 @@ body {
   @include flex-direction(row);
   padding-left: 0;
   padding-right: 0;
+  margin: 0;
   width: calc(100% - #{$sidebar-width-lg});
-  transition: width $action-transition-duration $action-transition-timing-function, margin $action-transition-duration $action-transition-timing-function;
+  transition: width $action-transition-duration $action-transition-timing-function,
+    margin $action-transition-duration $action-transition-timing-function;
 
   &.full-page-wrapper {
     width: 100%;
@@ -30,13 +32,14 @@ body {
     padding-top: 0;
   }
 
-  @media (max-width:992px) {
+  @media (max-width: 992px) {
     width: 100%;
   }
 }
 
 .main-panel {
-  transition: width $action-transition-duration $action-transition-timing-function, margin $action-transition-duration $action-transition-timing-function;
+  transition: width $action-transition-duration $action-transition-timing-function,
+    margin $action-transition-duration $action-transition-timing-function;
   width: 100%;
   min-height: calc(100vh - #{$navbar-height});
   padding-top: $navbar-height;
@@ -62,6 +65,7 @@ body {
   overflow: hidden;
   display: flex;
   position: relative;
+  justify-content: space-between;
 }
 
 pre {
@@ -101,7 +105,7 @@ code {
     text-align: center;
     box-shadow: 0px 3px 8.3px 0.7px rgba(163, 93, 255, 0.35);
     i {
-      font-size: .9375rem;
+      font-size: 0.9375rem;
       line-height: 36px;
     }
   }
@@ -112,11 +116,10 @@ code {
   background: $card-bg;
   padding: 15px;
   display: flex;
-  @include media-breakpoint-down(md) { 
-    padding: 15px 20px; 
+  @include media-breakpoint-down(md) {
+    padding: 15px 20px;
     display: block;
   }
-
 
   .btn {
     margin-right: 20px;
@@ -137,7 +140,7 @@ code {
     font-weight: 400;
     vertical-align: middle;
     line-height: 1;
-    @include media-breakpoint-down(md) { 
+    @include media-breakpoint-down(md) {
       margin-bottom: 10px;
     }
   }
@@ -146,7 +149,7 @@ code {
     vertical-align: middle;
     line-height: 1;
     margin: auto 0;
-    color: darken(#e4e4e4,20%);
+    color: darken(#e4e4e4, 20%);
   }
 }
 .removeProbanner {
