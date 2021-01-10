@@ -1,0 +1,40 @@
+<div id="settings-trigger" (click)="toggleThemeSettings()"><i class="mdi mdi-settings"></i></div>
+<div id="theme-settings" class="settings-panel">
+  <i class="settings-close mdi mdi-close" (click)="closeSettingsSidebar('theme')"></i>
+  <p class="settings-heading mt-2">LAYOUT OPTIONS</p>
+  <div class="layout-variations px-4 mx-2 mt-3">
+    <div class="form-check layout-item">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="layout-variations" [checked]="isDefaultLayout" (change)="changeLayout('default')">
+        Default
+        <i class="input-helper"></i>
+      </label>
+    </div>
+    <div class="form-check layout-item">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="layout-variations" [checked]="isSidebarIconOnly" (change)="changeLayout('icon-menu')">
+        Icon Menu
+        <i class="input-helper"></i>
+      </label>
+    </div>
+    <div class="form-check layout-item">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="layout-variations" [checked]="isCompactMenu" (change)="changeLayout('compact-menu')">
+        Compact Menu
+        <i class="input-helper"></i>
+      </label>
+    </div>
+    <div class="form-check layout-item">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="layout-variations" [checked]="isHiddenSidebar" (change)="changeLayout('hidden-sidebar')">
+        Hidden Sidebar
+        <i class="input-helper"></i>
+      </label>
+    </div>
+  </div>
+</div>
+<div id="right-sidebar" class="settings-panel">
+  <i class="settings-close mdi mdi-close" (click)="closeSettingsSidebar('main')"></i>
+  <div class="border-top right-sidebar-tab">
+  </div>
+</div>

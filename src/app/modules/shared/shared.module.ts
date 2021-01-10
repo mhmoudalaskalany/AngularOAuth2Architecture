@@ -14,7 +14,16 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
 
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { SettingsPanelComponent } from './settings-panel/settings-panel.component';
+import { FooterComponent } from './footer/footer.component';
+import { ContentAnimateDirective } from './directives/content-animate.directive';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { ChartsModule, ThemeService } from 'ng2-charts';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -24,10 +33,16 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 @NgModule({
   declarations: [
     LoadingSpinnerComponent,
+    NavbarComponent,
+    SidebarComponent,
+    SettingsPanelComponent,
+    FooterComponent,
+    SpinnerComponent,
     EnglishNamePatternDirective,
     ArabicNamePatternDirective,
     DeviceArabicNamePatternDirective,
     DeviceEnglishNamePatternDirective,
+    ContentAnimateDirective
   ],
   imports: [
     CommonModule,
@@ -40,17 +55,31 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
       }
-    })
+    }),
+    ChartsModule,
+    CarouselModule,
+    NgxMapboxGLModule,
+    NgbModule
   ],
   exports: [
     LoadingSpinnerComponent,
+    NavbarComponent,
+    SidebarComponent,
+    SettingsPanelComponent,
+    FooterComponent, SpinnerComponent,
     EnglishNamePatternDirective,
     ArabicNamePatternDirective,
     DeviceArabicNamePatternDirective,
     DeviceEnglishNamePatternDirective,
+    ContentAnimateDirective,
     FormsModule,
     ReactiveFormsModule,
-    TranslateModule
-  ]
+    TranslateModule,
+    ChartsModule,
+    CarouselModule,
+    NgxMapboxGLModule,
+    NgbModule
+  ],
+  providers: [ThemeService]
 })
 export class SharedModule { }
