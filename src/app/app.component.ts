@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Injector } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Shell } from 'base/components/shell';
+import { TranslationService } from 'core/services/localization/translation.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CoreArchitecture';
+
+  constructor(public inj: Injector, public translateService: TranslationService, public titleService: Title) {
+    Shell.Injector = inj;
+    this.translateService.setDefaultLanguage();
+    this.setTitle();
+  }
+
+  setTitle(): void {
+    const lang = this.translateService.getCurrentLanguage();
+    if (lang === 'ar') {
+      this.titleService.setTitle('النظام الرئيسى');
+    } else {
+      this.titleService.setTitle('Core Architecture');
+    }
+  }
 }
