@@ -8,6 +8,7 @@
   padding: 0;
   position: fixed;
   width: $sidebar-width-lg;
+  box-shadow: 10px 0 12px -4px #aab2bd, -10px 0 6px -4px #aab2bd;
   z-index: 11;
   transition: width $action-transition-duration $action-transition-timing-function,
     background $action-transition-duration $action-transition-timing-function;
@@ -219,6 +220,7 @@
             }
             h5 {
               white-space: nowrap;
+              color: $text-muted;
             }
           }
           .profile-pic {

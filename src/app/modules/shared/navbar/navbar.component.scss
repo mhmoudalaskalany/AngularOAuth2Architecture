@@ -17,6 +17,7 @@
     $action-transition-timing-function;
   -ms-transition: left $action-transition-duration
     $action-transition-timing-function;
+  box-shadow: 0 5px 3px -3px #aab2bd;
 
   :host-context(.rtl) & {
     @media (min-width: 992px) {

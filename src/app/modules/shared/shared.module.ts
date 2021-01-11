@@ -22,7 +22,6 @@ import { ContentAnimateDirective } from './directives/content-animate.directive'
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ChartsModule, ThemeService } from 'ng2-charts';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -58,7 +57,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     }),
     ChartsModule,
     CarouselModule,
-    NgxMapboxGLModule,
     NgbModule
   ],
   exports: [
@@ -77,7 +75,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     TranslateModule,
     ChartsModule,
     CarouselModule,
-    NgxMapboxGLModule,
     NgbModule
   ],
   providers: [ThemeService]

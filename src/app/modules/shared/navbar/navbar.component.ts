@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Shell } from 'base/components/shell';
+import { AuthService } from 'core/services/auth/auth.service';
+import { TranslationService } from 'core/services/localization/translation.service';
+import { StorageService } from 'core/services/storage/storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,24 +12,29 @@ import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
   providers: [NgbDropdownConfig]
 })
 export class NavbarComponent implements OnInit {
+  lang;
   public iconOnlyToggled = false;
   public sidebarToggled = false;
 
+  get Localize(): TranslationService { return Shell.Injector.get(TranslationService); }
+  get Storage(): StorageService { return Shell.Injector.get(StorageService); }
+  get AuthService(): AuthService { return Shell.Injector.get(AuthService); }
   constructor(config: NgbDropdownConfig) {
     config.placement = 'bottom-right';
+    this.Localize.currentLanguage.subscribe(lang => this.lang = lang);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   // toggle sidebar in small devices
-  toggleOffcanvas() {
+  toggleOffCanvas(): void {
     document.querySelector('.sidebar-offcanvas').classList.toggle('active');
   }
 
   // toggle sidebar
-  toggleSidebar() {
-    let body = document.querySelector('body');
+  toggleSidebar(): void {
+    const body = document.querySelector('body');
     if ((!body.classList.contains('sidebar-toggle-display')) && (!body.classList.contains('sidebar-absolute'))) {
       this.iconOnlyToggled = !this.iconOnlyToggled;
       if (this.iconOnlyToggled) {
@@ -44,8 +53,18 @@ export class NavbarComponent implements OnInit {
   }
 
   // toggle right sidebar
-  toggleRightSidebar() {
+  toggleRightSidebar(): void {
     document.querySelector('#right-sidebar').classList.toggle('open');
+  }
+
+  setLanguage(lang: string): void {
+    this.lang = lang;
+    this.Localize.setLanguage(lang);
+    this.Storage.setItem('language', lang);
+  }
+
+  async logout() {
+    await this.AuthService.signout();
   }
 
 }

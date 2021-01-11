@@ -10,20 +10,7 @@ import { MultiDataSet, Label, Colors } from 'ng2-charts';
 })
 // tslint:disable-next-line: component-class-suffix
 export class HomeComponent implements OnInit {
-  // Services
-  get Localize(): TranslationService { return Shell.Injector.get(TranslationService); }
-  constructor(private translateService: TranslationService) {
-  }
-
-  toggleProBanner(event) {
-    event.preventDefault();
-    document.querySelector('body').classList.toggle('removeProbanner');
-  }
-
-  ngOnInit() {
-  }
-
-  public doughnutChartLabels: Label[] = ["Paypal", "Stripe", "Cash"];
+  public doughnutChartLabels: Label[] = ['Paypal', 'Stripe', 'Cash'];
   public doughnutChartData: MultiDataSet = [
     [55, 25, 20]
   ];
@@ -45,27 +32,27 @@ export class HomeComponent implements OnInit {
 
       ctx.restore();
       var fontSize = 1;
-      ctx.font = fontSize + "rem sans-serif";
+      ctx.font = fontSize + 'rem sans-serif';
       ctx.textAlign = 'left';
-      ctx.textBaseline = "middle";
-      ctx.fillStyle = "#ffffff";
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = '#ffffff';
 
-      var text = "$1200",
-        textX = Math.round((width - ctx.measureText(text).width) / 2),
-        textY = height / 2.4;
+      const text = '$1200';
+      const textX = Math.round((width - ctx.measureText(text).width) / 2);
+      const textY = height / 2.4;
 
       ctx.fillText(text, textX, textY);
 
       ctx.restore();
       var fontSize = 0.75;
-      ctx.font = fontSize + "rem sans-serif";
+      ctx.font = fontSize + 'rem sans-serif';
       ctx.textAlign = 'left';
-      ctx.textBaseline = "middle";
-      ctx.fillStyle = "#6c7293";
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = '#6c7293';
 
-      var texts = "Total",
-        textsX = Math.round((width - ctx.measureText(text).width) / 1.93),
-        textsY = height / 1.7;
+      const texts = 'Total';
+      const textsX = Math.round((width - ctx.measureText(text).width) / 1.93);
+      const textsY = height / 1.7;
 
       ctx.fillText(texts, textsX, textsY);
       ctx.save();
@@ -94,6 +81,20 @@ export class HomeComponent implements OnInit {
     nav: true,
     autoplay: true,
     autoplayTimeout: 5500,
-    navText: ["<i class='mdi mdi-chevron-left'></i>", "<i class='mdi mdi-chevron-right'></i>"]
+    navText: ['<i class=\'mdi mdi-chevron-left\'></i>', '<i class=\'mdi mdi-chevron-right\'></i>']
+  };
+  // Services
+  get Localize(): TranslationService { return Shell.Injector.get(TranslationService); }
+  constructor(private translateService: TranslationService) {
   }
+
+  toggleProBanner(event): void {
+    event.preventDefault();
+    document.querySelector('body').classList.toggle('removeProbanner');
+  }
+
+  ngOnInit(): void {
+  }
+
+
 }

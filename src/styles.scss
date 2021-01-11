@@ -15,7 +15,6 @@
 @import "~ti-icons/css/themify-icons.css";
 @import "~@mdi/font/scss/materialdesignicons";
 @import "~font-awesome/scss/font-awesome";
-@import "~flag-icon-css/sass/flag-icon";
 @import "~simple-line-icons/scss/simple-line-icons";
 
 
@@ -61,16 +60,12 @@
 @import "./assets/scss/components/loaders/loaders";
 @import "./assets/scss/components/todo-list";
 
-@import "./assets/scss/components/landing-screens/auth";
 
 /* === Plugin styles === */
 @import "~morris.js/morris.css";
 @import "~chartist/dist/chartist.min.css";
-@import '~dragula/dist/dragula.min.css';
-@import "~nouislider/distribute/nouislider.min.css";
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
-@import '~select2/dist/css/select2.min.css';
 @import '~ngx-bar-rating/themes/br-default-theme';
 @import '~ngx-bar-rating/themes/br-bootstrap-theme';
 @import '~ngx-bar-rating/themes/br-fontawesome-theme';
@@ -80,15 +75,10 @@
 @import '~ngx-bar-rating/themes/br-stars-theme';
 @import '~ngx-bar-rating/themes/br-movie-theme';
 @import '~ngx-bar-rating/themes/br-square-theme';
-@import '~summernote/dist/summernote-lite.css';
-@import '~codemirror/lib/codemirror.css';
-@import '~codemirror/theme/dracula.css';
-@import '~datatables.net-dt/css/jquery.dataTables.css';
 @import '~ngx-toastr/toastr-bs4-alert';
 @import "~@ng-select/ng-select/themes/default.theme.css";
 /* === Plugin Overrides === */
 @import "./assets/scss/components/plugin-overrides/owl-carousel";
-@import "./assets/scss/components/plugin-overrides/select2";
 @import "./assets/scss/components/plugin-overrides/toast";
 
 /* === Layout === */

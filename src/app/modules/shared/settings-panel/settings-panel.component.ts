@@ -18,8 +18,8 @@ export class SettingsPanelComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    let body = document.querySelector('body');
+  ngOnInit(): void {
+    const body = document.querySelector('body');
     switch (true) {
       case body.classList.contains('boxed-layout'):
         this.isBoxedLayout = true;
@@ -44,11 +44,11 @@ export class SettingsPanelComponent implements OnInit {
     }
   }
 
-  toggleThemeSettings() {
+  toggleThemeSettings(): void {
     document.querySelector('#theme-settings').classList.toggle('open');
   }
 
-  closeSettingsSidebar(el) {
+  closeSettingsSidebar(el): void {
     if (el === 'theme') {
       document.querySelector('#theme-settings').classList.remove('open');
     } else {
@@ -56,23 +56,23 @@ export class SettingsPanelComponent implements OnInit {
     }
   }
 
-  changeSidebarTheme(theme) {
-    let body = document.querySelector('body');
+  changeSidebarTheme(theme): void {
+    const body = document.querySelector('body');
     body.classList.remove('sidebar-light', 'sidebar-dark');
     document.querySelectorAll('.sidebar-bg-options').forEach((el) => {
       el.classList.remove('selected');
-    })
-    if (theme === "light") {
+    });
+    if (theme === 'light') {
       body.classList.add('sidebar-light');
       document.querySelector('#sidebar-default-theme').classList.add('selected');
-    } else if (theme === "dark") {
+    } else if (theme === 'dark') {
       body.classList.add('sidebar-dark');
       document.querySelector('#sidebar-dark-theme').classList.add('selected');
     }
   }
 
-  changeNavbarTheme(theme) {
-    document.querySelector('.navbar').classList.remove("navbar-danger", "navbar-success", "navbar-warning", "navbar-dark", "navbar-light", "navbar-primary", "navbar-info", "navbar-pink")
+  changeNavbarTheme(theme): void {
+    document.querySelector('.navbar').classList.remove('navbar-danger', 'navbar-success', 'navbar-warning', 'navbar-dark', 'navbar-light', 'navbar-primary', 'navbar-info', 'navbar-pink');
     document.querySelectorAll('.color-tiles .tiles').forEach((el) => {
       el.classList.remove('selected');
     });
@@ -102,14 +102,14 @@ export class SettingsPanelComponent implements OnInit {
       document.querySelector('.tiles.dark').classList.add('selected');
     }
     if (theme === 'default') {
-      document.querySelector(".tiles.default").classList.add('selected');
+      document.querySelector('.tiles.default').classList.add('selected');
     }
   }
 
-  changeLayout(value) {
-    let layoutClasses = ['boxed-layout', 'sidebar-icon-only', 'sidebar-mini', 'sidebar-fixed', 'sidebar-toggle-display', 'sidebar-hidden', 'sidebar-absolute'];
-    let body = document.querySelector('body');
-    let themeSettings = document.querySelector('#theme-settings');
+  changeLayout(value): void {
+    const layoutClasses = ['boxed-layout', 'sidebar-icon-only', 'sidebar-mini', 'sidebar-fixed', 'sidebar-toggle-display', 'sidebar-hidden', 'sidebar-absolute'];
+    const body = document.querySelector('body');
+    const themeSettings = document.querySelector('#theme-settings');
     switch (value) {
       case 'boxed':
         body.classList.remove(...layoutClasses);

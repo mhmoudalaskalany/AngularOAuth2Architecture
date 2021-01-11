@@ -9,7 +9,7 @@ import { Action } from 'core/services/guards/models';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'main',
+    redirectTo: 'main/home',
     pathMatch: 'full'
   },
   {
