@@ -21,7 +21,6 @@ import { FooterComponent } from './footer/footer.component';
 import { ContentAnimateDirective } from './directives/content-animate.directive';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ChartsModule, ThemeService } from 'ng2-charts';
-import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -56,7 +55,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       }
     }),
     ChartsModule,
-    CarouselModule,
     NgbModule
   ],
   exports: [
@@ -74,7 +72,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ReactiveFormsModule,
     TranslateModule,
     ChartsModule,
-    CarouselModule,
     NgbModule
   ],
   providers: [ThemeService]

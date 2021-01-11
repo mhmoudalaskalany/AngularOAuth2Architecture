@@ -1,10 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import "./assets/sass/main.scss";
-/* You can add global styles to this file, and also import other style files */
 
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
-@import './assets/scss/variables';
+@import "./assets/scss/variables";
 @import "~compass-mixins/lib/compass";
 @import "~compass-mixins/lib/animate";
 @import "~bootstrap/scss/bootstrap";
@@ -12,11 +10,8 @@
 @import "./assets/scss/functions";
 
 /* === Icon fonts === */
-@import "~ti-icons/css/themify-icons.css";
 @import "~@mdi/font/scss/materialdesignicons";
 @import "~font-awesome/scss/font-awesome";
-@import "~simple-line-icons/scss/simple-line-icons";
-
 
 /* === Template mixins === */
 @import "./assets/scss/mixins/animation";
@@ -28,7 +23,6 @@
 @import "./assets/scss/mixins/blockqoute";
 @import "./assets/scss/mixins/popovers";
 @import "./assets/scss/mixins/tooltips";
-@import "./assets/scss/mixins/no-ui-slider";
 
 /* === Core Styles === */
 @import "./assets/scss/background";
@@ -60,25 +54,20 @@
 @import "./assets/scss/components/loaders/loaders";
 @import "./assets/scss/components/todo-list";
 
-
 /* === Plugin styles === */
 @import "~morris.js/morris.css";
 @import "~chartist/dist/chartist.min.css";
-@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
-@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
-@import '~ngx-bar-rating/themes/br-default-theme';
-@import '~ngx-bar-rating/themes/br-bootstrap-theme';
-@import '~ngx-bar-rating/themes/br-fontawesome-theme';
-@import '~ngx-bar-rating/themes/br-fontawesome-o-theme';
-@import '~ngx-bar-rating/themes/br-horizontal-theme';
-@import '~ngx-bar-rating/themes/br-vertical-theme';
-@import '~ngx-bar-rating/themes/br-stars-theme';
-@import '~ngx-bar-rating/themes/br-movie-theme';
-@import '~ngx-bar-rating/themes/br-square-theme';
-@import '~ngx-toastr/toastr-bs4-alert';
-@import "~@ng-select/ng-select/themes/default.theme.css";
-/* === Plugin Overrides === */
-@import "./assets/scss/components/plugin-overrides/owl-carousel";
+@import "~ngx-bar-rating/themes/br-default-theme";
+@import "~ngx-bar-rating/themes/br-bootstrap-theme";
+@import "~ngx-bar-rating/themes/br-fontawesome-theme";
+@import "~ngx-bar-rating/themes/br-fontawesome-o-theme";
+@import "~ngx-bar-rating/themes/br-horizontal-theme";
+@import "~ngx-bar-rating/themes/br-vertical-theme";
+@import "~ngx-bar-rating/themes/br-stars-theme";
+@import "~ngx-bar-rating/themes/br-movie-theme";
+@import "~ngx-bar-rating/themes/br-square-theme";
+@import "~ngx-toastr/toastr-bs4-alert";
+@import "~@ng-select/ng-select/themes/material.theme.css";
 @import "./assets/scss/components/plugin-overrides/toast";
 
 /* === Layout === */
