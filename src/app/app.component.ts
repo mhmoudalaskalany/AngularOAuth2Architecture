@@ -9,7 +9,7 @@ import { TranslationService } from 'core/services/localization/translation.servi
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'CoreArchitecture';
+  title = 'OmsgdServices';
 
   constructor(public inj: Injector, public translateService: TranslationService, public titleService: Title) {
     Shell.Injector = inj;
@@ -20,9 +20,9 @@ export class AppComponent {
   setTitle(): void {
     const lang = this.translateService.getCurrentLanguage();
     if (lang === 'ar') {
-      this.titleService.setTitle('النظام الرئيسى');
+      this.titleService.setTitle('الخدمات الإلكترونية');
     } else {
-      this.titleService.setTitle('Core Architecture');
+      this.titleService.setTitle('Omsgd Services');
     }
   }
 }

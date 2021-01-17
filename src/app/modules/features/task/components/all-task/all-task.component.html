@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-center grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <h4 class="card-title">{{ 'Data.Tasks' | translate}}</h4>
+          <a class="btn btn-info align-content-center" routerLink='/main/task/add'
+            *ngIf="permissions.indexOf('Permission.SERVICES-TASKS.Add') > -1">{{ 'Data.Add' | translate}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-12">
+      <app-data-table [tableOptions]="tableOptions">
+  
+      </app-data-table>
+    </div>
+  </div>
+  

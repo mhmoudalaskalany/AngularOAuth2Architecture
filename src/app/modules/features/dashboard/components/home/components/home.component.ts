@@ -10,9 +10,9 @@ import { MultiDataSet, Label, Colors } from 'ng2-charts';
 })
 // tslint:disable-next-line: component-class-suffix
 export class HomeComponent implements OnInit {
-  public doughnutChartLabels: Label[] = ['Paypal', 'Stripe', 'Cash'];
+  public doughnutChartLabels: Label[] = ['Closed Tasks', 'Opened Tasks', 'Pending Tasks'];
   public doughnutChartData: MultiDataSet = [
-    [55, 25, 20]
+    [150, 10, 5]
   ];
   public doughnutChartColors: Colors[] = [
     {
@@ -25,13 +25,13 @@ export class HomeComponent implements OnInit {
   ];
   public doughnutChartType: ChartType = 'doughnut';
   public doughnutChartChartPlugins = {
-    beforeDraw: function (chart) {
-      var width = chart.chart.width,
-        height = chart.chart.height,
-        ctx = chart.chart.ctx;
+    beforeDraw: (chart) => {
+      const width = chart.chart.width;
+      const height = chart.chart.height;
+      const ctx = chart.chart.ctx;
 
       ctx.restore();
-      var fontSize = 1;
+      let fontSize = 1;
       ctx.font = fontSize + 'rem sans-serif';
       ctx.textAlign = 'left';
       ctx.textBaseline = 'middle';
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
       ctx.fillText(text, textX, textY);
 
       ctx.restore();
-      var fontSize = 0.75;
+      fontSize = 0.75;
       ctx.font = fontSize + 'rem sans-serif';
       ctx.textAlign = 'left';
       ctx.textBaseline = 'middle';
@@ -52,12 +52,12 @@ export class HomeComponent implements OnInit {
 
       const texts = 'Total';
       const textsX = Math.round((width - ctx.measureText(text).width) / 1.93);
-      const textsY = height / 1.7;
+      const textsY = height / 2.5;
 
       ctx.fillText(texts, textsX, textsY);
       ctx.save();
     }
-  }
+  };
   public doughnutChartOptions: any = {
     responsive: true,
     cutoutPercentage: 70,
@@ -69,7 +69,8 @@ export class HomeComponent implements OnInit {
       }
     },
     legend: {
-      display: false,
+      display: true,
+      position: 'bottom'
     }
   };
 

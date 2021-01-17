@@ -16,8 +16,8 @@
     background: none;
   }
   button {
-    padding-top: .3rem;
-    padding-bottom: .3rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
   }
 }
 
@@ -47,15 +47,14 @@
 
 select {
   &.form-control {
-    padding: .4375rem .75rem;
+    padding: 0.4375rem 0.75rem;
     border: 0;
     outline: 1px solid $border-color;
     color: $input-placeholder-color;
     &:focus {
       outline: 1px solid $border-color;
     }
-    @each $color,
-    $value in $theme-colors {
+    @each $color, $value in $theme-colors {
       &.border-#{$color} {
         outline: 1px solid $value;
         &:focus {
@@ -71,7 +70,7 @@ select {
     font-size: $default-font-size;
     line-height: 1;
     vertical-align: top;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
   &.has-danger {
     .form-control {
@@ -84,5 +83,111 @@ select {
   }
   .file-upload-info {
     background: transparent;
+  }
+}
+
+/* material styles */
+
+
+/*
+My take on pure CSS material design inputs and drop-down
+Influenced heavily by: https://codepen.io/sevilayha/pen/IdGKH
+*/
+
+$material-form-label: #000000;
+$material-form-label-focus: #8f5fe8;
+$material-form-line: #000000;
+$material-form-line-focus: $material-form-label-focus;
+$material-form-input-text: $material-form-label;
+$material-form-input-text-focus: $material-form-label-focus;
+$material-form-field-invalid-foreground: #d50000;
+
+$material-dropdown-hoverBackground: #e8eaf6;
+$material-dropdown-selectedBackground: #9fa8da;
+$material-labelOffset: 10px;
+$material-textInputPaddingTopBottom: 5px;
+
+/*
+
+
+/*
+A material design form field
+Expects this html (note the required attribute on the input):
+<div class="material-form-field">
+<input type="text" required/>
+<label class="material-form-field-label">Form field title</label>
+</div>
+*/
+.material-form-field {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  position: relative;
+  display: block;
+  color: $material-form-label;
+  padding: $material-labelOffset 0 10px 0;
+
+  &::after {
+    content: "\00A0";
+    display: block;
+    color: $material-form-field-invalid-foreground;
+    font-size: 12px;
+    padding-top: 5px;
+  }
+
+  .material-form-field-label {
+    position: absolute;
+    display: block;
+    top: $material-labelOffset + $material-textInputPaddingTopBottom;
+    left: 0px;
+    transition: 0.3s ease all;
+    -moz-transition: 0.3s ease all;
+    -webkit-transition: 0.3s ease all;
+    pointer-events: none;
+    cursor: text;
+  }
+
+  input {
+    padding: $material-textInputPaddingTopBottom 0
+      $material-textInputPaddingTopBottom 0;
+    display: block;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    color: $material-form-input-text;
+    border-bottom: 1px solid $material-form-line;
+    outline: none;
+
+    &:invalid {
+      outline: none;
+      box-shadow: none;
+    }
+    &:valid,
+    &:focus {
+      & ~ .material-form-field-label {
+        top: $material-labelOffset - ($material-textInputPaddingTopBottom + 5);
+        font-size: 12px;
+      }
+    }
+    &:focus {
+      outline: none;
+      color: $material-form-input-text-focus;
+      padding-bottom: $material-textInputPaddingTopBottom - 2;
+      border-bottom-width: 3px;
+      border-bottom-color: $material-form-line-focus;
+
+      & ~ .material-form-field-label {
+        color: $material-form-label-focus;
+      }
+    }
+  }
+
+  &.material-form-field-invalid {
+    color: $material-form-field-invalid-foreground;
+    &::after {
+      content: attr(data-validationError);
+    }
+    input:focus ~ .material-form-field-label {
+      color: $material-form-field-invalid-foreground;
+    }
   }
 }

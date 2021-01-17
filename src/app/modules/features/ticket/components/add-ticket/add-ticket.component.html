@@ -1,0 +1,104 @@
+<div class="d-flex justify-content-center grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex justify-content-between mb-4">
+        <h4 class="card-title" *ngIf="isNew">{{ 'Data.Add' | translate}}</h4>
+        <h4 class="card-title" *ngIf="!isNew">{{ 'Data.Edit' | translate}}</h4>
+        <button class="btn btn-info" (click)="Redirect()">{{ 'Data.Back' | translate}}</button>
+      </div>
+
+      <form name="form" (ngSubmit)="f.form.valid && Submit()" #f="ngForm" novalidate>
+        <div class="form-group">
+          <div class="material-form-field" [ngClass]="{'material-form-field-invalid':f.submitted && title.invalid}">
+            <input type="text" #title="ngModel" [(ngModel)]="model.title" name="title" id="title" required />
+            <label class="material-form-field-label" for="title">{{ 'Data.Title' |translate}}</label>
+          </div>
+          <div *ngIf="f.submitted && title.invalid" class="custom-invalid-feedback">
+            <div *ngIf="title.errors.required">{{ 'Data.FieldRequired' | translate}}</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="material-form-field"
+            [ngClass]="{'material-form-field-invalid':f.submitted && description.invalid}">
+            <input type="text" #description="ngModel" [(ngModel)]="model.description" name="description"
+              id="description" required />
+            <label class="material-form-field-label" for="description">{{ 'Data.Description' |translate}}</label>
+          </div>
+          <div *ngIf="f.submitted && description.invalid" class="custom-invalid-feedback">
+            <div *ngIf="description.errors.required">{{ 'Data.FieldRequired' | translate}}</div>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <div class="material-form-field" [ngClass]="{'material-form-field-invalid':f.submitted && code.invalid}">
+            <input type="text" #code="ngModel" [(ngModel)]="model.ticketNumber" name="ticketNumber" id="ticketNumber"
+              required />
+            <label class="material-form-field-label" for="ticketNumber">{{ 'Data.TicketNumber' |translate}}</label>
+          </div>
+          <div *ngIf="f.submitted && code.invalid" class="custom-invalid-feedback">
+            <div *ngIf="code.errors.required">{{ 'Data.FieldRequired' | translate}}</div>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <div class="material-form-field" [ngClass]="{'material-form-field-invalid':f.submitted && code.invalid}">
+            <ng-select [items]="clients" placeholder="{{ 'Data.Client' | translate }}" name="client"
+              #employeeNumber="ngModel" bindLabel="fullNameAr" bindValue="id" [(ngModel)]="model.clientId"
+              (change)="setEmployee($event)" [typeahead]="employeeInputSearch$" [searchable]="true" required>
+            </ng-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label style="font-weight:bold;">{{ 'Data.EmployeeId' | translate }} :</label>
+              <p>{{ employeeId }}</p>
+
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label style="font-weight:bold;">{{ 'Data.EmployeeName' | translate }} :</label>
+              <p>{{ employeeNameAr }} </p>
+
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label style="font-weight:bold;">{{ 'Data.Unit' | translate }} :</label>
+              <p>{{ unitName }}</p>
+
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label style="font-weight:bold;">{{ 'Data.Position' | translate }} :</label>
+              <p>{{ position }} </p>
+
+
+              <!--<p>{{model.asset.item.itemType.specifications[0].nameAr}}</p>-->
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="material-form-field" [ngClass]="{'material-form-field-invalid':f.submitted && assets.invalid}">
+            <ng-select [items]="assets" placeholder="{{ 'Data.Assets' | translate }}" name="assets"
+              #employeeNumber="ngModel" bindLabel="fullAssetName" bindValue="id" [(ngModel)]="model.assetId"
+              [searchable]="true" required>
+            </ng-select>
+          </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary mr-2">{{ 'Data.Submit' | translate}}</button>
+      </form>
+    </div>
+  </div>
+</div>

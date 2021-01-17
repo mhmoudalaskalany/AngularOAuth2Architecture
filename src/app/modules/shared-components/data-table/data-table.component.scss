@@ -1,0 +1,55 @@
+/* action icon style */
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.iconPadding {
+  padding: 5px;
+}
+
+.icon {
+  font-size: 25px;
+  margin: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.icon:hover {
+  color: #3f51b5;
+  cursor: pointer;
+}
+
+.cell-background {
+  background-color: greenyellow;
+}
+
+:host ::ng-deep .p-datatable {
+  font-size: 15px !important;
+  .p-datatable-thead .table-header > th {
+    background: linear-gradient(#304352, #181818)  !important;
+    color: #fff;
+    text-align: center;
+  }
+  .p-datatable-thead .table-search-controls > th {
+
+    text-align: center;
+  }
+  .pi-sort-alt {
+    color: #fff;
+  }
+
+  tbody > tr:nth-child(even) {
+    background-color: #f2f3f8;
+  }
+  tbody > tr > td {
+    padding: 0;
+    text-align: center;
+    color: #242939;
+  }
+  .tr-body {
+    height: 34px !important;
+  }
+}

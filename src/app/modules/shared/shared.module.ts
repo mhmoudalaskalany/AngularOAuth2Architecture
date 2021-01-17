@@ -4,10 +4,6 @@ import { EnglishNamePatternDirective } from 'core/services/directives/englishNam
 import { ArabicNamePatternDirective } from './../core/services/directives/arabicNameValidator.directive';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
@@ -22,24 +18,14 @@ import { ContentAnimateDirective } from './directives/content-animate.directive'
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ChartsModule, ThemeService } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-export function HttpLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
-}
-
-
+import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
   declarations: [
-    LoadingSpinnerComponent,
     NavbarComponent,
     SidebarComponent,
     SettingsPanelComponent,
     FooterComponent,
     SpinnerComponent,
-    EnglishNamePatternDirective,
-    ArabicNamePatternDirective,
-    DeviceArabicNamePatternDirective,
-    DeviceEnglishNamePatternDirective,
     ContentAnimateDirective
   ],
   imports: [
@@ -47,30 +33,19 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    TranslateModule.forChild({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (HttpLoaderFactory),
-        deps: [HttpClient]
-      }
-    }),
+    TranslateModule,
     ChartsModule,
     NgbModule
   ],
   exports: [
-    LoadingSpinnerComponent,
     NavbarComponent,
     SidebarComponent,
     SettingsPanelComponent,
-    FooterComponent, SpinnerComponent,
-    EnglishNamePatternDirective,
-    ArabicNamePatternDirective,
-    DeviceArabicNamePatternDirective,
-    DeviceEnglishNamePatternDirective,
+    FooterComponent,
+    SpinnerComponent,
     ContentAnimateDirective,
     FormsModule,
     ReactiveFormsModule,
-    TranslateModule,
     ChartsModule,
     NgbModule
   ],

@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  public uiBasicCollapsed = false;
-  public uiAdvancedCollapsed = false;
+  public uiTasksCollapsed = false;
+  public uiConfigurationCollapsed = false;
   public formsCollapsed = false;
   public editorsCollapsed = false;
   public chartsCollapsed = false;

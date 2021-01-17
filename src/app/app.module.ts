@@ -32,12 +32,14 @@ const initializerConfigFn = (appConfig: ConfigService) => {
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json');
+  return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
 }
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    AuthCallbackComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     CoreModule,
-    SharedModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-center'
     }),
@@ -56,8 +57,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         provide: TranslateLoader,
         useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
-      },
-      isolate: false
+      }
     }),
     AppRoutingModule
   ],

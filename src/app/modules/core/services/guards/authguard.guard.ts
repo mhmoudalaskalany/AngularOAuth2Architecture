@@ -16,10 +16,10 @@ export class AuthGuard implements CanActivate {
     /* get current session manager */
     const manager: SessionManager = SessionManager.Current();
     /* if user is not logged in return false and redirect to login */
-    // if (!this.authService.isAuthenticated() && manager.GetToken() == null) {
-    //   this.router.navigate(['/login'], { queryParams: { redirect: state.url }, replaceUrl: true });
-    //   return false;
-    // }
+    if (!this.authService.isAuthenticated() && manager.GetToken() == null) {
+      this.router.navigate(['/login'], { queryParams: { redirect: state.url }, replaceUrl: true });
+      return false;
+    }
     /* if there is no data in route allow the user */
     if (route.data === undefined) {
       return true;

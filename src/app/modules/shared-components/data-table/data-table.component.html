@@ -1,0 +1,77 @@
+<p-table #table [columns]="cols" [value]="data" [sortField]="'id'" [sortOrder]="1" [lazy]="true"
+  [showCurrentPageReport]="true" [currentPageReportTemplate]="'Showing {first} to {last} of {totalRecords} entries'"
+  [paginator]="true" [rowsPerPageOptions]=[5,10,15,20] [rows]="this.Service.opt.pageSize" [totalRecords]="totalCount"
+  autoLayout="true" (onLazyLoad)="loadLazyLoadedData($event)" styleClass="p-datatable-generic">
+  <ng-template pTemplate="header" let-columns>
+    <!-- Table Headers-->
+    <tr class="table-header">
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        {{ 'Data.' +col.header | translate }}
+        <p-sortIcon [field]="col.field"></p-sortIcon>
+      </th>
+      <!-- Show Action In Header Row-->
+      <th
+        *ngIf="actions && (permissions.indexOf('Permission.'+ componentName+ '.Edit') > -1 || permissions.indexOf('Permission.'+ componentName+ '.Delete') > -1)"
+        style="width: 10em;">
+        {{ 'Data.Actions' | translate}}</th>
+    </tr>
+    <!-- Filter Controls-->
+    <tr class="table-search-controls">
+      <th *ngFor="let col of columns" [ngSwitch]="col.filterMode">
+        <input *ngSwitchCase="'text'" pInputText type="text"
+          (input)="filter($event.target.value, col.field , col.filterColumnName , col.dataType)">
+      </th>
+      <!-- Show Action In Filter Controls Row-->
+      <th
+        *ngIf="actions && (permissions.indexOf('Permission.'+ componentName+ '.Edit') > -1 || permissions.indexOf('Permission.'+ componentName+ '.Delete') > -1)">
+      </th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-row let-columns="columns">
+    <!-- Table Rows-->
+    <tr class="tr-body">
+      <!-- Display Data-->
+      <td *ngFor="let col of columns">
+        <span>{{ getCellData(row, col) }}</span>
+        <!-- {{ row[col.field] }} -->
+      </td>
+      <!-- Display Actions-->
+      <td
+        *ngIf="actions && (permissions.indexOf('Permission.'+ componentName+ '.Edit') > -1 || permissions.indexOf('Permission.'+ componentName+ '.Delete') > -1)"
+        class="actions">
+        <span *ngFor="let action of actions">
+
+          <span *ngIf="action.isEdit && permissions.indexOf('Permission.'+ componentName+ '.Edit') > -1">
+            <a [routerLink]="currentRoute + row.id">
+              <i class="{{ action.icon }} icon" [title]="'Data.' +action.name | translate"></i>
+            </a>
+          </span>
+          <span *ngIf="action.isDelete && permissions.indexOf('Permission.'+ componentName+ '.Delete') > -1">
+            <i class="{{ action.icon }} icon" (click)="openDeleteModal(row.id)" [ngStyle]="{color: action.color}"
+              [title]="'Data.' +action.name | translate"></i>
+          </span>
+
+          <span *ngIf="action.isView && permissions.indexOf('Permission.'+ componentName+ '.View') > -1">
+            <a [routerLink]="currentRoute + 'view/' + row.id">
+              <i class="{{ action.icon }} icon" [title]="'Data.' +action.name | translate"></i>
+            </a>
+          </span>
+
+          <span
+            *ngIf="!action.isEdit && !action.isDelete && !action.isView && permissions.indexOf(action.permission) > -1">
+            <i class="{{ action.icon }} icon" (click)="action.call(row)" [ngStyle]="{color: action.color}"
+              [title]="'Data.' +action.name | translate"></i>
+          </span>
+
+          <span
+            *ngIf="!action.isEdit && !action.isDelete && !action.isView">
+            <i class="{{ action.icon }} icon" (click)="action.call(row)" [ngStyle]="{color: action.color}"
+              [title]="'Data.' +action.name | translate"></i>
+          </span>
+        </span>
+      </td>
+    </tr>
+  </ng-template>
+
+</p-table>

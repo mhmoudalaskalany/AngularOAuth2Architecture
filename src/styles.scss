@@ -72,3 +72,9 @@
 
 /* === Layout === */
 @import "./assets/scss/layout";
+
+
+.custom-invalid-feedback {
+  color: #d50000;
+  font-size: 12px;
+}

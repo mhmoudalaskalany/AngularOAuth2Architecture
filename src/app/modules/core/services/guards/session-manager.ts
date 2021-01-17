@@ -40,7 +40,7 @@ export class SessionManager {
     return null;
   }
 
-  public StartSession(user?: User) {
+  public StartSession(user?: User): void {
     this.MapRoles(user.profile.roles);
     this.tokenData = Object.assign(new TokenData(), {
       Token: user.access_token,
@@ -54,7 +54,7 @@ export class SessionManager {
     this.MapPermissions(permissions);
   }
 
-  public EndSession() {
+  public EndSession(): void {
     this.tokenData = null;
   }
   public GetPermission(id: string | Action): string {
@@ -85,11 +85,11 @@ export class SessionManager {
 
   private MapRoles(roles: any): void {
     const parsedRoles = JSON.parse(roles);
-    const appRoles = parsedRoles.filter(x => x.AppCode === 'STOCK-MANAGEMENT');
+    const appRoles = parsedRoles.filter(x => x.AppCode === 'OMSGD-SERVICES');
     sessionStorage.setItem('Roles', JSON.stringify(appRoles));
   }
-  private MapPermissions(permissions?: any[]) {
-    const appPermission = permissions.find(x => x.appCode === 'STOCK-MANAGEMENT');
+  private MapPermissions(permissions?: any[]): void {
+    const appPermission = permissions.find(x => x.appCode === 'OMSGD-SERVICES');
     sessionStorage.setItem('Permissions', JSON.stringify(appPermission));
   }
 

@@ -24,11 +24,11 @@ export class AuthService {
 
   private manager = new UserManager({
     authority: this.configService.getAppUrl('ID4'),
-    client_id: 'STOCK-MANAGEMENT',
+    client_id: 'OMSGD-SERVICES',
     redirect_uri: this.configService.getAppUrl('REDIRECT-URL'),
     post_logout_redirect_uri: this.configService.getAppUrl('LOGOUT-URL'),
     response_type: 'code',
-    scope: 'openid profile email StockManagementApi UserManagementApi',
+    scope: 'openid profile email UserManagementApi StockManagementApi OmsgdServicesApi',
     filterProtocolClaims: true,
     loadUserInfo: true
   });

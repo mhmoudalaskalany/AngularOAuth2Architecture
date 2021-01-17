@@ -38,7 +38,7 @@ $colors: (
 );
 
 $theme-colors: (
-  primary: #0090e7,
+  primary: #00a8ff,
   secondary: #e4eaec,
   success: #00d25b,
   info: #8f5fe8,
@@ -95,7 +95,7 @@ $body-color: #ffffff;
 ///////// CARD ////////
 $card-bg: #fff;
 $card-description-color: #bfbfbf;
-$card-title-color: #ffffff;
+$card-title-color: #111111;
 ///////// CARD ////////
 
 ////////// SIDEBAR ////////
@@ -189,9 +189,9 @@ $tooltip-border-radius: 0.375rem;
 
 /////////  FORMS /////////
 
-$input-bg: #2a3038;
+$input-bg: #fff;
 $input-border-radius: 2px;
-$input-placeholder-color: #c9c8c8;
+$input-placeholder-color: #2a3038;
 $input-placeholder-font-size: 0.875rem;
 
 $input-padding-y: 0.875rem;

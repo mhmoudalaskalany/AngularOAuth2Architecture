@@ -9,7 +9,7 @@ import { Action } from 'core/services/guards/models';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'main/home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -26,6 +26,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { permission: Action.Anonymous }
   }
+  
 ];
 
 @NgModule({
